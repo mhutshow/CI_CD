@@ -11,7 +11,7 @@ on:
 name: "CI/CD OTTO"
 jobs:
   flutter_test:
-    name: Run flutter test and analyze
+    name: Test and Analyze
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -27,6 +27,7 @@ jobs:
 
   build:
     name: Build & Release
+    needs: [flutter_test]
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v1
